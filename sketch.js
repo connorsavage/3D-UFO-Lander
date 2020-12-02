@@ -13,8 +13,6 @@ let starsImage
 let treeImage
 let stumpImage
 let moonImage
-let bushImage
-
 
 function preload() {
   grassImage = loadImage('grass.png')
@@ -22,7 +20,6 @@ function preload() {
   treeImage = loadImage('tree.jpg')
   stumpImage = loadImage('stump.jpg')
   moonImage = loadImage('moon.jpg')
-  bushImage = loadImage('bush.jpg')
 }
 
 function setup() {
@@ -37,7 +34,6 @@ function draw() {
   moveUfo()
   drawSky()
   drawGround()
-  drawBushes()
   drawTrees()
   drawMoon()
   drawUfo()
@@ -77,296 +73,90 @@ function drawGround() {
   pop()
 }
 
-function drawBushes() {
+function drawTree(x, y, z, r, c, s) {
   push()
-  texture(bushImage)
-  translate(-140, 200, -190)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -20, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  translate(-20, -10, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -15, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  pop()
-
-  push()
-  texture(bushImage)
-  translate(5, 200, -190)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -20, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  translate(-20, -10, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -15, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  pop()
-
-  push()
-  texture(bushImage)
-  rotateY(radians(-30))
-  translate(45, 200, -190)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -20, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  translate(-20, -10, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -15, 0)
-  sphere(20)
-  translate(-40, 0, 0)
-  sphere(20)
-  translate(0, 20, 10)
-  sphere(20)
-  translate(40, 0, 0)
-  sphere(20)
-  translate(-20, -10, 0)
-  sphere(20)
+  texture(stumpImage)
+  translate(x, y, z)
+  cylinder(15, 60)
+  texture(treeImage)
+  rotateX(radians(180))
+  translate(0, s[0], 0)
+  cone(r[0], c[0])
+  translate(0, s[1], 0)
+  cone(r[1], c[1])
+  translate(0, s[2], 0)
+  cone(r[2], c[2])
+  translate(0, s[3], 0)
+  cone(r[3], c[3])
   pop()
 }
 
 function drawTrees() {
-  push()
-  texture(stumpImage)
-  translate(-260, 200, 40)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 70)
-  translate(0, 50, 0)
-  cone(60, 70)
-  translate(0, 50, 0)
-  cone(50, 70)
-  translate(0, 50, 0)
-  cone(40, 70)
-  pop()
 
-  push()
-  texture(stumpImage)
-  translate(-150, 200, -120)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(-260, 200, 40,
+    [70, 60, 50, 40],
+    [70, 70, 70, 70],
+    [70, 50, 50, 50])
 
-  push()
-  texture(stumpImage)
-  translate(-100, 200, -200)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(-150, 200, -120,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(50, 200, -200)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(-100, 200, -200,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(150, 200, -200)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 85, 0)
-  cone(80, 110)
-  translate(0, 80, 0)
-  cone(80, 130)
-  translate(0, 80, 0)
-  cone(70, 130)
-  translate(0, 70, 0)
-  cone(50, 90)
-  pop()
+  drawTree(50, 200, -190,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(-250, 200, -140)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 80, 0)
-  cone(80, 100)
-  translate(0, 70, 0)
-  cone(80, 100)
-  translate(0, 70, 0)
-  cone(70, 100)
-  translate(0, 70, 0)
-  cone(50, 100)
-  pop()
+  drawTree(150, 200, -200,
+    [80, 80, 70, 50],
+    [110, 130, 130, 90],
+    [85, 100, 100, 70])
 
-  push()
-  texture(stumpImage)
-  translate(-30, 200, -190)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 85, 0)
-  cone(80, 110)
-  translate(0, 80, 0)
-  cone(80, 130)
-  translate(0, 80, 0)
-  cone(70, 130)
-  translate(0, 80, 0)
-  cone(50, 130)
-  pop()
+  drawTree(-250, 200, -140,
+    [80, 80, 70, 50],
+    [100, 100, 100, 100],
+    [80, 70, 70, 70])
 
-  push()
-  texture(stumpImage)
-  translate(100, 200, -150)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(-30, 200, -170,
+    [90, 80, 70, 50],
+    [110, 130, 130, 130],
+    [85, 80, 80, 80])
 
-  push()
-  texture(stumpImage)
-  translate(180, 200, -90)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(100, 200, -150,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(290, 200, -190)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 90, 0)
-  cone(80, 100)
-  translate(0, 70, 0)
-  cone(70, 100)
-  translate(0, 70, 0)
-  cone(50, 100)
-  translate(0, 70, 0)
-  cone(40, 120)
-  pop()
+  drawTree(180, 200, -90,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(320, 200, -50)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(290, 200, -190,
+    [80, 70, 50, 40],
+    [100, 100, 100, 120],
+    [90, 70, 70, 70])
 
-  push()
-  texture(stumpImage)
-  translate(250, 200, 180)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 80)
-  translate(0, 60, 0)
-  cone(60, 80)
-  translate(0, 60, 0)
-  cone(50, 80)
-  translate(0, 60, 0)
-  cone(40, 80)
-  pop()
+  drawTree(320, 200, -50,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
-  push()
-  texture(stumpImage)
-  translate(-220, 200, 230)
-  cylinder(15, 60);
-  texture(treeImage)
-  rotateX(radians(180))
-  translate(0, 70, 0)
-  cone(70, 70)
-  translate(0, 50, 0)
-  cone(60, 70)
-  translate(0, 50, 0)
-  cone(50, 70)
-  translate(0, 50, 0)
-  cone(40, 70)
-  pop()
+  drawTree(250, 200, 180,
+    [70, 60, 50, 40],
+    [80, 80, 80, 80],
+    [70, 60, 60, 60])
 
+  drawTree(-220, 200, 230,
+    [70, 60, 50, 40],
+    [70, 70, 70, 70],
+    [70, 50, 50, 50])
 }
 
 function drawMoon() {
@@ -412,25 +202,21 @@ function drawLegs() {
   rotateZ(radians(25))
   cylinder(5, legLength)
   pop()
-
   push()
   translate(x + 50, elevation + 20, 0)
   rotateZ(radians(-25))
   cylinder(5, legLength)
   pop()
-
   push()
   translate(x, elevation + 20, 50)
   rotateX(radians(25))
   cylinder(5, legLength)
   pop()
-
   push()
   translate(x, elevation + 20, -50)
   rotateX(radians(-25))
   cylinder(5, legLength)
   pop()
-
   if (elevation >= -50) {
     legLength += 0.5
   }
