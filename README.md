@@ -1,2 +1,5 @@
 # 3D-UFO-Lander
-Meant to be ran in the p5.js editor to show an animated 3D UFO landing.
+
+Used WEBGL to create a 3D animation of a UFO Landing in a forest.
+
+Animation Link: https://connorsavage.github.io/3D-UFO-Lander/
